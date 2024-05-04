@@ -1,8 +1,14 @@
-yum install git java-1.8.0-openjdk maven tree -y
- sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
-  sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+#Maven installation and git with java-1.8.0 cuz maven works on this version
+yum install git java-1.8.0 maven tree -y
+#Jenkins RedHat config:
+sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+ sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+#Jenkins Installation:
 yum install jenkins
-amazon-linux-extras install java-openjkdl11
-udate-alternatives --config java
-systemctl start jenkins.services
-systemctl status jenkins.services
+#Java installation for Jenkins
+amazon-linux-extras install java-openjdk11
+#Deafalut version selected is 1.8.0 to change the version:press 2 cuz to work with jenkins
+update-alternatives --config java
+#To Start the Jenkin-service;
+systemctl start jenkins.service
+systemctl status jenkins.service
